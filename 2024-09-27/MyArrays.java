@@ -1,6 +1,7 @@
 public class MyArrays {
   public static void main(String[] args) {
-    System.out.println(arrayToString(new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9}));
+    int[] ary1 = new int[]{1, 2, 3};
+    System.out.println("Is it a new array: " + (ary1 != returnCopy(ary1)) + ", Do they have the same values: " + arrayToString(ary1).equals(arrayToString(returnCopy(ary1))));
   }
 
   public static String arrayToString(int[] ary) {
