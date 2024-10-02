@@ -8,6 +8,12 @@ public class ArrayMethods {
     System.out.println("Array: " + arrToString(new int[][]{{1,2,3},{4,5,6}}) + ", Sum: " + arr2DSum(new int[][]{{1,2,3},{4,5,6}}));
     System.out.println("Array: " + arrToString(new int[][]{{},{4,5,6}}) + ", Sum: " + arr2DSum(new int[][]{{},{4,5,6}}));
     System.out.println("Array: " + arrToString(new int[][]{{1,2,3,4,5},{6,7,8}}) + ", Sum: " + arr2DSum(new int[][]{{1,2,3,4,5},{6,7,8}}));
+    int[][] arr = new int[][]{{1,2,-3}, {0,-1}, {35,-50,22,16}};
+    System.out.print("Array: " + arrToString(arr));
+    replaceNegative(arr);
+    System.out.println(", Changed Array: " + arrToString(arr));
+    int[][] arr2 = new int[][]{{1,2,-3}, {0,-1}, {35,-50,22,16}, {}};
+    System.out.println("Array: " + arrToString(arr2) + ", Array Copy: " + arrToString(copy(arr2)) + ". Is it a different array? " + !(arr == arr2));
   }
 
   //2. Copy your arrToString method from before.
@@ -81,11 +87,15 @@ public class ArrayMethods {
     for (int i = 0; i < vals.length; i++) {
       for (int k = 0; k < vals[i].length; k++) {
         if (vals[i][k] < 0) {
-          vals[i][k] = i == k? vals[i][k] : 0;
+          if (i == k) {
+            vals[i][k] = 1;
+          }
+          else {
+            vals[i][k] = 0;
+          }
         }
       }
     }
-    return vals;
 }
 
   //4. Make a copy of the given 2d array.
@@ -95,11 +105,9 @@ public class ArrayMethods {
   //If you don't see a good way to do that, you should stop and look at prior methods.
   public static int[][] copy(int[][] nums){
     int[][] result = new int[nums.length][];
-    for (int i = 0; i < nums.length; i++)
-    {
+    for (int i = 0; i < nums.length; i++) {
       result[i] = new int[nums[i].length];
-      for (int k = 0; k < nums[i].length; k++);
-      {
+      for (int k = 0; k < nums[i].length; k++) {
         result[i][k] = nums[i][k];
       }
     }
