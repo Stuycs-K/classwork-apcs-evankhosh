@@ -36,7 +36,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int sum = 0;
+    for (int i = 0; i < nums.length; i++) {
+      for (int k = 0; k < nums[i].length; k++) {
+        if (nums[i][k] == 0) {
+          sum++;
+        }
+      }
+    }
+    return sum;
   }
 
   //2. Calculate the sum of a 2d array
@@ -45,11 +53,9 @@ public class ArrayDemo{
   public static int arr2DSum(int[][]nums){
     int sum = 0;
     for (int i = 0; i < nums.length; i++) {
-      int tempsum = 0;
       for (int k = 0; k < nums[i].length; k++) {
-        tempsum += nums[i][k];
+        sum += nums[i][k];
       }
-      sum += tempsum;
     }
     return sum;
   }
@@ -110,6 +116,18 @@ public class ArrayDemo{
   //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
   // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
   public static String htmlTable(int[][]nums){
-    return "";
+    String out = "<table>";
+    for (int i = 0; i < nums.length; i++) {
+      out += htmlRow(nums[i]);
+    }
+    return out + "</table>";
+  }
+
+  public static String htmlRow(int[]nums){
+    String out = "<tr>";
+    for (int i = 0; i < nums.length; i++) {
+      out += "<td>" + nums[i] + "</td>";
+    }
+    return out + "</tr>";
   }
 }
