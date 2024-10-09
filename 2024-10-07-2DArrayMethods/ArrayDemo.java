@@ -5,12 +5,15 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
-
+    System.out.println("Array: " + arrToString(new int[][]{{0,1,5},{2,7,0,0,0},{}}) + " (4 Zeros), countZeros2D: " + countZeros2D(new int[][]{{0,1,5},{2,7,0,0,0},{}}));
+    System.out.println("Array: " + arrToString(new int[][]{{},{}}) + " (0 Zeros), countZeros2D: " + countZeros2D(new int[][]{{},{}}));
+    System.out.println("Array: " + arrToString(new int[][]{{1,2},{3}}) + ", HTML Table: " + htmlTable(new int[][]{{1,2},{3}}));
+    System.out.println("Array: " + arrToString(new int[][]{{55,7,0},{3},{},{}}) + ", HTML Table: " + htmlTable(new int[][]{{55,7,0},{3},{},{}}));
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
   public static String arrToString(int[]ary){
-    tring out = "[";
+    String out = "[";
     for (int i = 0; i < ary.length; i++) {
       out += ary[i];
       if (i != ary.length - 1) {
