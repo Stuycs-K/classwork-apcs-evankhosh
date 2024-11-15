@@ -30,7 +30,7 @@ public class ArrayListPractice{
     ArrayList<String> newArray = new ArrayList<String>(original.size());
 
     for (int i = 0; i < original.size(); i++){
-      newArray.set(i, original.get(original.size() - i - 1));
+      newArray.add(original.get(original.size() - i - 1));
     }
     return newArray;
   }
