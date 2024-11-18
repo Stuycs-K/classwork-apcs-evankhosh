@@ -10,8 +10,8 @@ public class Day1 {
       Scanner input = new Scanner(file);
       String current = "";
       while(input.hasNext()){
-        current = input.Next();
-        if (current.charAt(0) == "R"){
+        current = input.next();
+        if (current.charAt(0) == 'R'){
           direction++;
         } else {
           direction--;
@@ -22,14 +22,15 @@ public class Day1 {
           ew++;
         } else if (direction % 4 == 2){
           ns--;
-        } else (direction % 4 == 3){
+        } else if (direction % 4 == 3){
           ew--;
         }
       }
       input.close();
-      return Math.abs(ns) + ath.abs(ew);
+      return Math.abs(ns) + Math.abs(ew);
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
       return -1;
+    }
   }
 }
