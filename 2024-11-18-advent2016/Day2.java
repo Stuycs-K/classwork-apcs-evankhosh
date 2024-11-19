@@ -21,12 +21,13 @@ public class Day2 {
   public static int bathroomCode(String filename){
     String[] data = parseFile(filename);
     Coordinate coord = new Coordinate(1, 1);
+    int code = 0;
     for (String s : data){
       for (int i = 0; i < s.length(); i++){
         coord.change(s.charAt(i));
       }
-      System.out.println(coord);
+      code = code * 10 + coord.numPad();
     }
-    return 0;
+    return code;
   }
 }
