@@ -4,30 +4,35 @@ import java.util.Scanner;
 
 public class Day1 {
   public static int distance(String filename){
-    int direction = 0; int ns = 0; int ew = 0;
+    int direction = 0; int y = 0; int x = 0;
     try {
       File file = new File(filename);
       Scanner input = new Scanner(file);
-      String current = "";
+      String current = ""; int dis;
       while(input.hasNext()){
         current = input.next();
+        if (input.hasNext()){
+          dis = Integer.parseInt(current.substring(1, current.length()-1));
+        } else{
+          dis = Integer.parseInt(current.substring(1));
+        }
         if (current.charAt(0) == 'R'){
-          direction++;
+          direction += 5;
         } else {
-          direction--;
+          direction += 3;
         }
         if (direction % 4 == 0){
-          ns++;
+          y += dis;
         } else if (direction % 4 == 1){
-          ew++;
+          x += dis;
         } else if (direction % 4 == 2){
-          ns--;
+          y -= dis;
         } else if (direction % 4 == 3){
-          ew--;
+          x -= dis;
         }
       }
       input.close();
-      return Math.abs(ns) + Math.abs(ew);
+      return Math.abs(y) + Math.abs(x);
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
       return -1;
