@@ -21,12 +21,12 @@ public class Coordinate{
   }
 
   public void changeDia(char dir){
-    int yLeeway = x % 2; int xLeeway = y % 2;
-    if (x == 2) { yLeeway = 2; }
-    if (y == 2) { xLeeway = 2; }
+    int yLeeway = 2 - (x % 2); int xLeeway = 2 - (y % 2);
+    if (x == 2) { yLeeway = 0; }
+    if (y == 2) { xLeeway = 0; }
     if (dir == 'U' && y > yLeeway){ y--; }
-    if (dir == 'R' && x < xLeeway + 2){ x++; }
-    if (dir == 'D' && y < yLeeway + 2){ y++; }
+    if (dir == 'R' && x < 4 - xLeeway){ x++; }
+    if (dir == 'D' && y < 4 - yLeeway){ y++; }
     if (dir == 'L' && x > xLeeway){ x--; }
     return;
   }

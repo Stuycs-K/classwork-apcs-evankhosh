@@ -30,4 +30,17 @@ public class Day2 {
     }
     return code;
   }
+
+  public static String bathroomCodeDia(String filename){
+    String[] data = parseFile(filename);
+    Coordinate coord = new Coordinate(0, 2);
+    String code = "";
+    for (String s : data){
+      for (int i = 0; i < s.length(); i++){
+        coord.changeDia(s.charAt(i));
+      }
+      code += coord.diaPad();
+    }
+    return code;
+  }
 }

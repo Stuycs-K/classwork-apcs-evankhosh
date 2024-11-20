@@ -5,5 +5,6 @@ public class Driver {
 
     System.out.println("\nDay 2\n");
     System.out.println("Part 1: " + Day2.bathroomCode("ReadFile.txt"));
+    System.out.println("Part 2: " + Day2.bathroomCodeDia("ReadFile.txt"));
   }
 }
