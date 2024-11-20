@@ -11,6 +11,7 @@ public class Day2 {
       while (input.hasNext()){
         data += ", " + input.next();
       }
+      input.close();
       return data.split(", ");
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
