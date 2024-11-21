@@ -7,7 +7,7 @@ public class Driver {
     //System.out.println("Part 1: " + Day2.bathroomCode("ReadFile.txt"));
     //System.out.println("Part 2: " + Day2.bathroomCodeDia("ReadFile.txt"));
 
-    System.out.println("\nDay 4\n");
-    System.out.println("Part 1: " + Day4.sumRealIDs("ReadFile.txt"));
+    //System.out.println("\nDay 4\n");
+    //System.out.println("Part 1: " + Day4.sumRealIDs("ReadFile.txt"));
   }
 }
