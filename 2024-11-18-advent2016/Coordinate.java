@@ -12,6 +12,14 @@ public class Coordinate{
     this.y = other.y;
   }
 
+  public int getX(){
+    return x;
+  }
+
+  public int getY(){
+    return y;
+  }
+  
   public void change(char dir){
     if (dir == 'U' && y > 0){ y--; }
     if (dir == 'R' && x < 2){ x++; }
@@ -63,6 +71,10 @@ public class Coordinate{
       else { return 'C'; }
     }
     else { return 'D'; }
+  }
+
+  public boolean equals(Coordinate other){
+    return this.x == other.x && this.y == other.y;
   }
 
   public String toString(){
