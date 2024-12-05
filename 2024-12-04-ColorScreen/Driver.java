@@ -3,16 +3,18 @@ import java.util.Random;
 public class Driver {
   public static void main(String[] args){
     System.out.print(Text.CLEAR_SCREEN + Text.HIDE_CURSOR);
+    Text.color(Text.BLACK, Text.background(Text.WHITE));
     for (int i = 0; i < 80; i++){
       for (int k = 0; k < 30; k++){
-        if (!(i == 0 || i == 79) && !(k == 0 || k == 2 || k == 29)){
+        if (!(i == 0 || i == 79) && !(k == 0 || k == 29)){
           continue;
         }
         Text.go(k+1, i+1);
-        Text.color(Text.WHITE, Text.background(Text.WHITE));
         System.out.print(".");
       }
     }
+    Text.go(3, 2);
+    System.out.print("------------------------------------------------------------------------------");
 
     Random rand = new Random();
     Integer[] nums = new Integer[]{rand.nextInt(100), rand.nextInt(100), rand.nextInt(100)};
