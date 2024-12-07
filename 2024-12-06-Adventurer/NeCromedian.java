@@ -28,4 +28,10 @@ public class NeCromedian extends Adventurer{
   public int getSpecialMax(){
     return specialMax;
   }
+  
+  //hurt or hinder the target adventurer
+  public String attack(Adventurer other){
+    other.applyDamage(1);
+    return "Reduce HP to " + other.getHP() + ".";
+  }
 }
