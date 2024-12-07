@@ -37,14 +37,14 @@ public class NeCromedian extends Adventurer{
   
   //heal or buff the target adventurer
   public String support(Adventurer other){
-    other.setmaxHP(other.getmaxHP() * 1.5);
+    other.setmaxHP((int)(other.getmaxHP() * 1.5));
     other.restoreSpecial(other.getSpecialMax() / 2);
     return "Increase maxHP to " + other.getSpecialMax() + " and restore " + other.getSpecialName() + " to " + other.getSpecial() + ".";
   }
 
   //heal or buff self
   public String support(){
-    this.setmaxHP(this.getmaxHP() * 1.5);
+    this.setmaxHP((int)(this.getmaxHP() * 1.5));
     this.restoreSpecial(this.getSpecialMax() / 2);
     return "Increase maxHP to " + this.getSpecialMax() + " and restore " + this.getSpecialName() + " to " + this.getSpecial() + ".";
   }
