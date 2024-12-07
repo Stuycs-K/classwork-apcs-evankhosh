@@ -48,4 +48,14 @@ public class NeCromedian extends Adventurer{
     this.restoreSpecial(this.getSpecialMax() / 2);
     return "Increase maxHP to " + this.getSpecialMax() + " and restore " + this.getSpecialName() + " to " + this.getSpecial() + ".";
   }
+  
+  //hurt or hinder the target adventurer, consume some special resource
+  public String specialAttack(Adventurer other){
+    if(this.getSpecial() != 100){
+      return "Not enough " + this.getSpecialName() + ".";
+    }
+    this.setSpecial(0);
+    other.setHP(1);
+    return "Reduce HP to " + other.getHP() + ".";
+  }
 }
