@@ -12,8 +12,12 @@ public class Game {
       codeWarriorInput = userInput.nextLine();
       codeWarriorInputArr = codeWarriorInput.split(" ");
       try{
-        codeWarrior = new CodeWarrior(codeWarriorInputArr[0], Integer.parseInt(codeWarriorInputArr[1]), codeWarriorInputArr[2]);
-        System.out.println("\n");
+        if (codeWarriorInputArr.length == 1 && codeWarriorInputArr[0].equals("")) { codeWarrior = new CodeWarrior(); }
+        else if (codeWarriorInputArr.length == 1) { codeWarrior = new CodeWarrior(codeWarriorInputArr[0]); }
+        else if (codeWarriorInputArr.length == 2) { codeWarrior = new CodeWarrior(codeWarriorInputArr[0], Integer.parseInt(codeWarriorInputArr[1])); }
+        else if (codeWarriorInputArr.length == 3) { codeWarrior = new CodeWarrior(codeWarriorInputArr[0], Integer.parseInt(codeWarriorInputArr[1]), codeWarriorInputArr[2]); }
+        else { throw new Exception("bad"); }
+        System.out.print("\n");
         break;
       }
       catch (Exception ex){
@@ -28,8 +32,11 @@ public class Game {
       neCromedianInput = userInput.nextLine();
       neCromedianInputArr = neCromedianInput.split(" ");
       try{
-        neCromedian = new NeCromedian(neCromedianInputArr[0], Integer.parseInt(neCromedianInputArr[1]));
-        System.out.println("\n");
+        if (neCromedianInputArr.length == 1 && neCromedianInputArr[0].equals("")) { neCromedian = new NeCromedian(); }
+        else if (neCromedianInputArr.length == 1) { neCromedian = new NeCromedian(neCromedianInputArr[0]); }
+        else if (neCromedianInputArr.length == 2) { neCromedian = new NeCromedian(neCromedianInputArr[0], Integer.parseInt(neCromedianInputArr[1])); }
+        else { throw new Exception("bad"); }
+        System.out.print("\n");
         break;
       }
       catch (Exception ex){
@@ -38,7 +45,7 @@ public class Game {
       }
     }
 
-    //Print Adventurers starting values
+    //Print Adventurers' starting values
     System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
     System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName() + "\n");
     
@@ -63,7 +70,7 @@ public class Game {
           }
           if (move.toLowerCase().equals("quit")){
             win = 2;
-            System.out.println("\n");
+            System.out.print("\n");
             break game;
           }
           System.out.println("\n" + codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
@@ -94,7 +101,7 @@ public class Game {
           }
           if (move.toLowerCase().equals("quit")){
             win = 2;
-            System.out.println("\n");
+            System.out.print("\n");
             break game;
           }
           System.out.println("\n" + codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
@@ -108,6 +115,7 @@ public class Game {
       }
     }
 
+    //Winning or Tying
     if (win == 0){
       System.out.println(codeWarrior.getName() + " the Code Warrior wins!");
     }
