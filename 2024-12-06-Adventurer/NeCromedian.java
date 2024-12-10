@@ -34,30 +34,28 @@ public class NeCromedian extends Adventurer{
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
     other.applyDamage(1);
-    return "Reduce HP to " + other.getHP() + ".";
+    return this + " attacked "+ other + " and dealt 1 point of damage. They then take crack a bad joke.";
   }
   
   //heal or buff the target adventurer
   public String support(Adventurer other){
     other.setmaxHP((int)(other.getmaxHP() * 1.5));
-    other.restoreSpecial(other.getSpecialMax() / 2);
-    return "Increase maxHP to " + other.getSpecialMax() + " and restore " + other.getSpecialName() + " to " + other.getSpecial() + ".";
+    return this + "makes " + other + " laugh with a couple bad jokes and restores " + other.restoreSpecial(other.getSpecialMax() / 2) + " " + other.getSpecialName() + "and increases max HP to " + other.getmaxHP();
   }
 
   //heal or buff self
   public String support(){
     this.setmaxHP((int)(this.getmaxHP() * 1.5));
-    this.restoreSpecial(this.getSpecialMax() / 2);
-    return "Increase maxHP to " + this.getSpecialMax() + " and restore " + this.getSpecialName() + " to " + this.getSpecial() + ".";
+    return this + "cracks a few bad jokes to himself and restores " + this.restoreSpecial(this.getSpecialMax() / 2) + " " + this.getSpecialName() + "and increases max HP to " + this.getmaxHP();
   }
   
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
     if(this.getSpecial() != 100){
-      return "Not enough " + this.getSpecialName() + ".";
+      return "Not enough " + this.getSpecialName() + " to give a stand-up routine. Instead " + attack(other);
     }
     this.setSpecial(0);
     other.setHP(1);
-    return "Reduce HP to " + other.getHP() + ".";
+    return this + " used their " + this.getSpecialName() + " to start a ghoulish stand-up routine. This cracks up " + other + " setting their health to 1.";
   }
 }
