@@ -46,7 +46,7 @@ public class NeCromedian extends Adventurer{
   //heal or buff self
   public String support(){
     this.setmaxHP((int)(this.getmaxHP() * 1.5));
-    return this + "cracks a few bad jokes to himself and restores " + this.restoreSpecial(this.getSpecialMax() / 2) + " " + this.getSpecialName() + "and increases max HP to " + this.getmaxHP();
+    return this + "cracks a few bad jokes to himself and restores " + this.restoreSpecial(this.getSpecialMax() / 2) + " " + this.getSpecialName() + " and increases max HP to " + this.getmaxHP();
   }
   
   //hurt or hinder the target adventurer, consume some special resource

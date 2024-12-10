@@ -8,37 +8,39 @@ public class Game {
 
     //Set up CodeWarrior
     while (true){
-      System.out.println("Enter your Code Warrior's Name, HP, and Coding Language");
+      System.out.println("Enter your Code Warrior's Name, HP, and Coding Language\n");
       codeWarriorInput = userInput.nextLine();
       codeWarriorInputArr = codeWarriorInput.split(" ");
       try{
         codeWarrior = new CodeWarrior(codeWarriorInputArr[0], Integer.parseInt(codeWarriorInputArr[1]), codeWarriorInputArr[2]);
+        System.out.println("\n");
         break;
       }
       catch (Exception ex){
-        System.out.println("Bad input. Try again with the format: \"Name HP(numbers only) Language\".");
+        System.out.println("\nBad input. Try again with the format: \"Name HP(numbers only) Language\".\n");
         continue;
       }
     }
 
     //Set up NeCromedian
     while (true){
-      System.out.println("Enter your Ne-Cromedian's Name and HP");
+      System.out.println("Enter your Ne-Cromedian's Name and HP\n");
       neCromedianInput = userInput.nextLine();
       neCromedianInputArr = neCromedianInput.split(" ");
       try{
         neCromedian = new NeCromedian(neCromedianInputArr[0], Integer.parseInt(neCromedianInputArr[1]));
+        System.out.println("\n");
         break;
       }
       catch (Exception ex){
-        System.out.println("Bad input. Try again with the format: \"Name HP(numbers only)\".");
+        System.out.println("\nBad input. Try again with the format: \"Name HP(numbers only)\".\n");
         continue;
       }
     }
 
     //Print Adventurers starting values
     System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
-    System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName());
+    System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName() + "\n");
     
     String move; int win = 2; //0 = CodeWarrior 1 = NeCromedian 2 = Quit/Tie
     game:
@@ -46,28 +48,30 @@ public class Game {
       //Code Warrior's turn
       while (true){
         System.out.println(codeWarrior.getName() + "'s turn");
-        System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
+        System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit\n");
         try{
           move = userInput.nextLine();
+          win = 0;
           if (move.toLowerCase().equals("attack") || move.equals("a")){
-            codeWarrior.attack(neCromedian);
+            System.out.println("\n" + codeWarrior.attack(neCromedian));
           }
           if (move.toLowerCase().equals("special") || move.equals("sp")){
-            codeWarrior.specialAttack(neCromedian);
+            System.out.println("\n" + codeWarrior.specialAttack(neCromedian));
           }
           if (move.toLowerCase().equals("support") || move.equals("su")){
-            codeWarrior.support();
+            System.out.println("\n" + codeWarrior.support());
           }
           if (move.toLowerCase().equals("quit")){
             win = 2;
+            System.out.println("\n");
             break game;
           }
-          System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
-          System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName());
+          System.out.println("\n" + codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
+          System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName() + "\n");
           break;
         }
         catch (Exception ex){
-          System.out.println("Bad input. Try again with one of the given words or shorthands.");
+          System.out.println("\nBad input. Try again with one of the given words or shorthands.\n");
           continue;
         }
       }
@@ -75,28 +79,30 @@ public class Game {
       //NeCromedian's turn
       while (true){
         System.out.println(neCromedian.getName() + "'s turn");
-        System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
+        System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit\n");
         try{
           move = userInput.nextLine();
+          win = 1;
           if (move.toLowerCase().equals("attack") || move.equals("a")){
-            neCromedian.attack(codeWarrior);
+            System.out.println("\n" + neCromedian.attack(codeWarrior));
           }
           if (move.toLowerCase().equals("special") || move.equals("sp")){
-            neCromedian.specialAttack(codeWarrior);
+            System.out.println("\n" + neCromedian.specialAttack(codeWarrior));
           }
           if (move.toLowerCase().equals("support") || move.equals("su")){
-            neCromedian.support();
+            System.out.println("\n" + neCromedian.support());
           }
           if (move.toLowerCase().equals("quit")){
             win = 2;
+            System.out.println("\n");
             break game;
           }
-          System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
-          System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName());
+          System.out.println("\n" + codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
+          System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName() + "\n");
           break;
         }
         catch (Exception ex){
-          System.out.println("Bad input. Try again with one of the given words or shorthands.");
+          System.out.println("\nBad input. Try again with one of the given words or shorthands.\n");
           continue;
         }
       }
