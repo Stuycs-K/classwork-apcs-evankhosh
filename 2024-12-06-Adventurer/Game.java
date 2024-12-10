@@ -23,7 +23,7 @@ public class Game {
 
     //Set up NeCromedian
     while (true){
-      System.out.println("Enter your NeCromedian's Name and HP");
+      System.out.println("Enter your Ne-Cromedian's Name and HP");
       neCromedianInput = userInput.nextLine();
       neCromedianInputArr = neCromedianInput.split(" ");
       try{
@@ -40,10 +40,9 @@ public class Game {
     System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
     System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName());
     
+    String move; int win = 2; //0 = CodeWarrior 1 = NeCromedian 2 = Quit/Tie
     game:
     while (codeWarrior.getHP() > 0 && neCromedian.getHP() > 0){
-      String move; int win; //0 = CodeWarrior 1 = NeCromedian 2 = Quit/Tie
-
       //Code Warrior's turn
       while (true){
         System.out.println(codeWarrior.getName() + "'s turn");
@@ -102,5 +101,17 @@ public class Game {
         }
       }
     }
+
+    if (win == 0){
+      System.out.println(codeWarrior.getName() + " the Code Warrior wins!");
+    }
+    if (win == 1){
+      System.out.println(neCromedian.getName() + " the Ne-Cromedian wins!");
+    }
+    if (win == 2){
+      System.out.println("No Contest");
+    }
+
+    userInput.close();
   }
 }
