@@ -1,16 +1,18 @@
 public class NeCromedian extends Adventurer{
   private int special, specialMax;
-  
-  public NeCromedian(String name){
-    super(name, 10);
-    special = 50;
-    specialMax = 100;
-  }
 
   public NeCromedian(String name, int hp){
     super(name, hp);
     special = 50;
     specialMax = 100;
+  }
+
+  public NeCromedian(String name){
+    this(name, 10);
+  }
+
+  public NeCromedian(){
+    this("Jimmy");
   }
 
   //give it a short name (fewer than 13 characters)
