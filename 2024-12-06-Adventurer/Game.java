@@ -72,6 +72,35 @@ public class Game {
           continue;
         }
       }
+
+      //NeCromedian's turn
+      while (true){
+        System.out.println(neCromedian.getName() + "'s turn");
+        System.out.println("Type: (a)ttack / (sp)ecial / (su)pport / quit");
+        try{
+          move = userInput.nextLine();
+          if (move.toLowerCase().equals("attack") || move.equals("a")){
+            neCromedian.attack(codeWarrior);
+          }
+          if (move.toLowerCase().equals("special") || move.equals("sp")){
+            neCromedian.specialAttack(codeWarrior);
+          }
+          if (move.toLowerCase().equals("support") || move.equals("su")){
+            neCromedian.support();
+          }
+          if (move.toLowerCase().equals("quit")){
+            win = 2;
+            break game;
+          }
+          System.out.println(codeWarrior.getName() + ", " + codeWarrior.getHP() + "/" + codeWarrior.getmaxHP() + " HP, " + codeWarrior.getSpecial() + "/" + codeWarrior.getSpecialMax() + " " + codeWarrior.getSpecialName());
+          System.out.println(neCromedian.getName() + ", " + neCromedian.getHP() + "/" + neCromedian.getmaxHP() + " HP, " + neCromedian.getSpecial() + "/" + neCromedian.getSpecialMax() + " " + neCromedian.getSpecialName());
+          break;
+        }
+        catch (Exception ex){
+          System.out.println("Bad input. Try again with one of the given words or shorthands.");
+          continue;
+        }
+      }
     }
   }
 }
