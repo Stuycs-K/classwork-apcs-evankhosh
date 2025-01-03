@@ -1,5 +1,5 @@
 //Largest number that can be caluclated under 10s is 46
-//
+///Largest fibonnaci number that fits in an integer is 46
 public class Driver{
 
   public static void main(String[] args){
